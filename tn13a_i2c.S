@@ -18,8 +18,8 @@
 .equ I2C_SDA,   PB0
 .equ I2C_SCL,   PB2
 
-.global avr_i2c_init
-avr_i2c_init:
+.global tn13a_i2c_init
+tn13a_i2c_init:
     cbi I2C_DIR, I2C_SDA
     cbi I2C_DIR, I2C_SCL
     nop
@@ -29,8 +29,8 @@ avr_i2c_init:
     ret
 
 
-.global avr_i2c_write
-avr_i2c_write:
+.global tn13a_i2c_write
+tn13a_i2c_write:
     ldi  r18,  0x08
 1:  sbi  I2C_DIR, I2C_SDA 
     sbrs r24,  0x07
@@ -51,14 +51,14 @@ avr_i2c_write:
     ret
 
 
-.global avr_i2c_start
-avr_i2c_start:
+.global tn13a_i2c_start
+tn13a_i2c_start:
     sbi  I2C_DIR, I2C_SDA
     sbi  I2C_DIR, I2C_SCL
     rjmp avr_i2c_write
 
-.global avr_i2c_stop
-avr_i2c_stop:
+.global tn13a_i2c_stop
+tn13a_i2c_stop:
     sbi  I2C_DIR, I2C_SDA
     cbi  I2C_DIR, I2C_SCL
     nop
@@ -66,6 +66,4 @@ avr_i2c_stop:
     ret
 
 
-.global avr_i2c_read
-avr_i2c_read:
-    
+; TODO tn13a_i2c_read
