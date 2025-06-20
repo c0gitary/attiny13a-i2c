@@ -55,7 +55,7 @@ tn13a_i2c_write:
 tn13a_i2c_start:
     sbi  I2C_DIR, I2C_SDA
     sbi  I2C_DIR, I2C_SCL
-    rjmp avr_i2c_write
+    rjmp tn13a_i2c_write
 
 .global tn13a_i2c_stop
 tn13a_i2c_stop:
